@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
       t.src = 'https://www.clarity.ms/tag/' + i;
       y = l.getElementsByTagName(r)[0];
       y.parentNode.insertBefore(t, y);
-    })(window, document, 'clarity', 'script', 'y6dpyklm95');
+    })(window, document, 'clarity', 'script', 'yphzdfvf36');
 
     var fbPixelId = document.body && document.body.dataset.fbPixelId
       ? document.body.dataset.fbPixelId
