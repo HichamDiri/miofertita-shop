@@ -1,0 +1,368 @@
+/* Cápsulas Anti Inflamación y Digestión — AiRi pink + green theme */
+body[data-product="digest-pa"] {
+  --hl-crimson: #2f6b45;
+  --hl-crimson-bright: #3d8558;
+  --hl-crimson-deep: #1f4a32;
+  --hl-ink: #2a2520;
+  --hl-muted: #6b6560;
+  --hl-cream: #fef8fa;
+  --hl-cream-warm: #fceef3;
+  --hl-beige: #f8e8ee;
+  --hl-pink: #f5dfe8;
+  --hl-copper: #2f6b45;
+  --hl-line: #ecd9e2;
+}
+
+body[data-product="digest-pa"] .slide img.is-contain {
+  padding: 12px;
+  background: #fef8fa;
+}
+
+body[data-product="digest-pa"] .announce {
+  background: var(--hl-crimson-deep);
+  color: #f5dfe8;
+}
+
+body[data-product="digest-pa"] .deal-strip {
+  background: linear-gradient(90deg, var(--hl-crimson-deep), var(--hl-crimson));
+  color: #fff;
+}
+
+body[data-product="digest-pa"] .story-flow .story-step:first-child {
+  border-top: none;
+}
+
+body[data-product="digest-pa"] .story-flow .feature-copy .pay-note {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+}
+
+body[data-product="digest-pa"] .voices .voice-photo {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body[data-product="digest-pa"] .voices .voice-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important;
+  max-height: none !important;
+  margin-bottom: 0;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 2px;
+}
+
+body[data-product="digest-pa"] .story-flow .feature-inner {
+  align-items: start;
+}
+
+body[data-product="digest-pa"] .story-flow .feature-media--square {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background: #fef8fa;
+  align-self: start;
+  flex-shrink: 0;
+}
+
+body[data-product="digest-pa"] .story-flow .feature-media--square img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 4px;
+  background: #fef8fa;
+}
+
+body[data-product="digest-pa"] .product-tagline {
+  margin: -8px 0 10px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--hl-crimson-deep);
+  font-weight: 600;
+}
+
+body[data-product="digest-pa"] .hero-lead {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--hl-muted);
+}
+
+body[data-product="digest-pa"] .quote-block {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--hl-line);
+  text-align: center;
+}
+
+body[data-product="digest-pa"] .quote-block p {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--hl-ink);
+}
+
+body[data-product="digest-pa"] .quote-block cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--hl-muted);
+}
+
+body[data-product="digest-pa"] .cta-final {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+body[data-product="digest-pa"] .cta-final .btn-order {
+  margin-top: 18px;
+}
+
+body[data-product="digest-pa"] .product-subtitle {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hl-muted);
+}
+
+body[data-product="digest-pa"] .notice {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  color: var(--hl-crimson-deep);
+}
+
+body[data-product="digest-pa"] .digest-voices.voices-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 2px 16px;
+  margin-top: 28px;
+  -webkit-overflow-scrolling: touch;
+}
+
+body[data-product="digest-pa"] .digest-voices .voice {
+  flex: 0 0 min(300px, 82vw);
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid var(--hl-line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+body[data-product="digest-pa"] .digest-voices .voice-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--hl-cream-warm);
+  color: var(--hl-crimson-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+body[data-product="digest-pa"] .digest-voices .voice-name {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  color: var(--hl-muted);
+}
+
+body[data-product="digest-pa"] .digest-voices .voice h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--hl-crimson-deep);
+}
+
+body[data-product="digest-pa"] .digest-voices .voice p:last-child {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--hl-muted);
+}
+
+body[data-product="digest-pa"] .digest-voices-note {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--hl-muted);
+  text-align: center;
+}
+
+body[data-product="digest-pa"] .ingc__card-img[src$=".svg"] {
+  object-fit: contain;
+  padding: 18px;
+  background: #fef8fa;
+}
+
+body[data-product="digest-pa"] .ingc__card-img[src$=".png"],
+body[data-product="digest-pa"] .ingc__card-img[src$=".webp"] {
+  object-fit: contain;
+  padding: 10px;
+  background: #fff;
+}
+
+body[data-product="digest-pa"] .mech-card img[src$=".svg"] {
+  object-fit: contain;
+  padding: 12px;
+  background: #fef8fa;
+}
+
+body[data-product="digest-pa"] .mech-card img[src$=".png"],
+body[data-product="digest-pa"] .mech-card img[src$=".webp"] {
+  object-fit: cover;
+  object-position: center;
+  background: #fef8fa;
+}
+
+/* ---------- routine timeline (horizontal) ---------- */
+body[data-product="digest-pa"] .hl-routine {
+  background: var(--hl-crimson-deep);
+  color: #f5dfe8;
+}
+
+body[data-product="digest-pa"] .hl-routine .hl-eyebrow {
+  color: rgba(245, 223, 232, 0.72);
+}
+
+body[data-product="digest-pa"] .hl-routine .hl-title {
+  color: #fff;
+}
+
+body[data-product="digest-pa"] .tl-h {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 8px;
+}
+
+body[data-product="digest-pa"] .tl-h__line {
+  position: absolute;
+  left: 16.66%;
+  right: 16.66%;
+  top: 52px;
+  height: 2px;
+  background: rgba(245, 223, 232, 0.45);
+  pointer-events: none;
+}
+
+body[data-product="digest-pa"] .tl-h__step {
+  --tl-delay: 0ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) var(--tl-delay),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) var(--tl-delay);
+}
+
+body[data-product="digest-pa"] .tl-h__step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body[data-product="digest-pa"] .tl-h__when {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f5b8cc;
+}
+
+body[data-product="digest-pa"] .tl-h__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f5b8cc;
+  box-shadow: 0 0 0 4px var(--hl-crimson-deep);
+  position: relative;
+  z-index: 1;
+}
+
+body[data-product="digest-pa"] .tl-h__benefit {
+  margin: 0;
+  max-width: 220px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 720px) {
+  body[data-product="digest-pa"] .tl-h {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 0;
+    padding-left: 8px;
+  }
+
+  body[data-product="digest-pa"] .tl-h__line {
+    left: 14px;
+    right: auto;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    height: auto;
+  }
+
+  body[data-product="digest-pa"] .tl-h__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: start;
+    text-align: left;
+  }
+
+  body[data-product="digest-pa"] .tl-h__dot {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  body[data-product="digest-pa"] .tl-h__when {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  body[data-product="digest-pa"] .tl-h__benefit {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: none;
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "headers": [
+    {
+      "source": "/(.*\\.html)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/videos/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/thank-you-miofertita", "destination": "/thank-you-miofertita.html" },
+    { "source": "/thank-you-miofertita/", "destination": "/thank-you-miofertita.html" },
+    { "source": "/privacidad", "destination": "/privacidad.html" },
+    { "source": "/privacidad/", "destination": "/privacidad.html" },
+    { "source": "/terminos", "destination": "/terminos.html" },
+    { "source": "/terminos/", "destination": "/terminos.html" },
+    { "source": "/envios", "destination": "/envios.html" },
+    { "source": "/envios/", "destination": "/envios.html" },
+    { "source": "/devoluciones", "destination": "/devoluciones.html" },
+    { "source": "/devoluciones/", "destination": "/devoluciones.html" },
+    { "source": "/contacto", "destination": "/contacto.html" },
+    { "source": "/contacto/", "destination": "/contacto.html" }
+  ]
+}

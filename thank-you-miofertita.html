@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Pedido confirmado! | MioFertita.shop</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/miofertita.css?v=20260928">
+  <style>
+    body { padding-bottom: 0; }
+    .thankyou-brandbar{background:#111;color:#fff;padding:18px 16px;text-align:center}
+    .thankyou-brandbar strong{font-family:var(--serif);font-size:1.3rem;font-weight:500;text-transform:lowercase}
+    .thankyou-brandbar strong em{font-style:normal;font-weight:400}
+    .thankyou-content{padding:16px;max-width:520px;margin:0 auto}
+    .thankyou-hero-card{background:#faf9f7;border-radius:2px;padding:24px 18px;text-align:center;margin-bottom:14px;border:1px solid var(--line)}
+    .success-icon{width:56px;height:56px;background:#111;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;margin:0 auto 12px}
+    .thankyou-hero-card h1{font-family:var(--serif);font-size:1.35rem;margin-bottom:8px;font-weight:500}
+    .footer{padding:20px 14px 28px;text-align:center;background:#f8fafc;border-top:1px solid #e2e8f0;font-size:.8rem;color:var(--muted)}
+  </style>
+</head>
+<body class="thankyou-page miofertita-thankyou" data-brand="miofertita">
+
+<div class="page">
+  <div class="thankyou-brandbar">
+    <strong>mio<em>fertita</em></strong>
+    <span>Pedido en confirmación</span>
+  </div>
+
+  <div class="thankyou-content">
+    <section class="thankyou-hero-card">
+      <div class="success-icon">✓</div>
+      <h1>¡Gracias por tu pedido!</h1>
+      <p>Te contactaremos pronto para confirmar la dirección y la entrega. Número de pedido: <strong id="thankyouOrderId">—</strong></p>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p><a href="/">Volver al inicio</a> · contacto@miofertita.shop</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get('order_id') || params.get('orderId');
+    if (id) document.getElementById('thankyouOrderId').textContent = id;
+  })();
+</script>
+</body>
+</html>

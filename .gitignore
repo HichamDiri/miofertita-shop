@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.log
+_shot-*.png
+_audit.py
+
+_ref.html
+_*.py
