@@ -1,4 +1,6 @@
-const GOOGLE_SHEETS_URL = process.env.GOOGLE_SHEETS_URL || '';
+const GOOGLE_SHEETS_URL =
+  process.env.GOOGLE_SHEETS_URL ||
+  'https://script.google.com/macros/s/AKfycbx__S60obOiYJB7dqlBNMqIvaxTIzY2pafz92tsgYX9G7tpGZvMQYur-N664u787IZVHw/exec';
 
 function readPayload(req) {
   if (!req.body) return {};

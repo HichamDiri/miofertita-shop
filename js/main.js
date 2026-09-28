@@ -881,7 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
       bundleLabel: selectedBundle ? String(selectedBundle.dataset.label || '').trim() : '',
       color: String(formData.get('color') || '').trim(),
       createdAt: new Date().toISOString(),
-      source: String(formData.get('source') || 'compraconfio').trim()
+      source: String(formData.get('source') || (document.body && document.body.dataset.brand === 'miofertita' ? 'miofertita' : 'compraconfio')).trim()
     };
 
     var shippingMethodValue = String(formData.get('shippingMethod') || '').trim();

@@ -29,9 +29,25 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
+    },
+    {
+      "source": "/closet-organizer-hanger-panama",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/closet-organizer-hanger-panama/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
     }
   ],
   "rewrites": [
+    { "source": "/closet-organizer-hanger-panama", "destination": "/closet-organizer-hanger-panama.html" },
+    { "source": "/closet-organizer-hanger-panama/", "destination": "/closet-organizer-hanger-panama.html" },
+    { "source": "/thank-you-miofertita-panama", "destination": "/thank-you-miofertita-panama.html" },
+    { "source": "/thank-you-miofertita-panama/", "destination": "/thank-you-miofertita-panama.html" },
     { "source": "/thank-you-miofertita", "destination": "/thank-you-miofertita.html" },
     { "source": "/thank-you-miofertita/", "destination": "/thank-you-miofertita.html" },
     { "source": "/privacidad", "destination": "/privacidad.html" },
