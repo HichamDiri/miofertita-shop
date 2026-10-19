@@ -1,15 +1,15 @@
 /* Korean Silk Collagen Ampoule para auto — CompraConfio Panamá */
 /* CompraConfio â€” Glutathione 7 Dark Spot Serum Patch PanamÃ¡ (packaging: lemon yellow) */
 :root {
-  --alarm-lilac: #e2e8f0;
-  --alarm-red: #b76e79;
-  --alarm-red-deep: #8b4a55;
-  --alarm-cream: #f8fafc;
-  --alarm-soft: #f1f5f9;
-  --alarm-line: #e2e8f0;
-  --alarm-pearl: #94a3b8;
-  --alarm-ink: #1c1917;
-  --alarm-warm: #eef2f7;
+  --alarm-lilac: #f0d78c;
+  --alarm-red: #c9a227;
+  --alarm-red-deep: #8b6914;
+  --alarm-cream: #fdfbf5;
+  --alarm-soft: #faf6eb;
+  --alarm-line: #e8dcc4;
+  --alarm-pearl: #9a8868;
+  --alarm-ink: #2a241c;
+  --alarm-warm: #f5efe3;
 }
 
 body[data-product="silk-collagen"] {
@@ -31,11 +31,11 @@ body[data-product="silk-collagen"] .hero-guarantee-badge {
   margin: 12px 0 14px;
   padding: 12px 14px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #fdf2f4 0%, #fce7eb 100%);
-  border: 1px solid #e8b4bc;
+  background: linear-gradient(135deg, #fdf8eb 0%, #f5ecd4 100%);
+  border: 1px solid #dcc999;
   font-size: 0.88rem;
   line-height: 1.45;
-  color: #5c3a42;
+  color: #5c4a1e;
 }
 
 body[data-product="silk-collagen"] .hero-guarantee-badge strong {
