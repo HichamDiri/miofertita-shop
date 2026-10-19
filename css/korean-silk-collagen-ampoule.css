@@ -2073,3 +2073,206 @@ body[data-product="silk-collagen"] .tl-footnote {
   }
 }
 
+/* ---------- photo reviews ---------- */
+body[data-product="silk-collagen"] .gluta-review-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 720px) {
+  body[data-product="silk-collagen"] .gluta-review-grid.review-grid--photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+body[data-product="silk-collagen"] .gluta-review-grid .review-card {
+  border: 1px solid var(--alarm-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+body[data-product="silk-collagen"] .review-card--photo .stars,
+body[data-product="silk-collagen"] .review-card--photo .review-card__title,
+body[data-product="silk-collagen"] .review-card--photo p,
+body[data-product="silk-collagen"] .review-card--photo cite {
+  padding: 0 16px;
+}
+
+body[data-product="silk-collagen"] .review-card--photo .stars {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: var(--alarm-red);
+  font-size: 0.84rem;
+  letter-spacing: 1px;
+}
+
+body[data-product="silk-collagen"] .review-card--photo .review-card__title {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--alarm-red-deep);
+}
+
+body[data-product="silk-collagen"] .review-card--photo p {
+  margin: 0 0 10px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #333;
+  flex: 1;
+}
+
+body[data-product="silk-collagen"] .review-card--photo cite {
+  display: block;
+  padding-bottom: 16px;
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--hl-muted);
+}
+
+body[data-product="silk-collagen"] .review-photo-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+}
+
+body[data-product="silk-collagen"] .review-photo-btn img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: var(--alarm-soft);
+}
+
+body[data-product="silk-collagen"] .review-photo-btn::after {
+  content: "⤢";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #333;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+body[data-product="silk-collagen"] .gluta-review-note {
+  margin-top: 18px;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--hl-muted);
+  text-align: center;
+}
+
+body[data-product="silk-collagen"] .review-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  align-items: center;
+  justify-content: center;
+}
+
+body[data-product="silk-collagen"] .review-lightbox.is-open {
+  display: flex;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+body[data-product="silk-collagen"] .review-lightbox-panel {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 760px);
+  max-height: 92vh;
+  padding: 52px 48px;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-figure {
+  margin: 0;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-figure img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  background: #111;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-figure figcaption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+body[data-product="silk-collagen"] .review-lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-nav.is-prev {
+  left: 0;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-nav.is-next {
+  right: 0;
+}
+
+body[data-product="silk-collagen"] .review-lightbox-nav:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  body[data-product="silk-collagen"] .review-lightbox-panel {
+    padding: 44px 36px;
+  }
+}
+
