@@ -27,6 +27,30 @@ body[data-product="silk-collagen"] .deal-strip {
   font-weight: 700;
 }
 
+body[data-product="silk-collagen"] .hero-guarantee-badge {
+  margin: 12px 0 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fdf2f4 0%, #fce7eb 100%);
+  border: 1px solid #e8b4bc;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #5c3a42;
+}
+
+body[data-product="silk-collagen"] .hero-guarantee-badge strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--alarm-red-deep);
+  margin-bottom: 4px;
+}
+
+body[data-product="silk-collagen"] .hero-guarantee-badge span {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
 body[data-product="silk-collagen"] .price-save,
 body[data-product="silk-collagen"] .bundle-flag,
 body[data-product="silk-collagen"] .btn-order,
