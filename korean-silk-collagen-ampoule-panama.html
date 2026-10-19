@@ -90,15 +90,6 @@
         <li><strong>90 días</strong> de garantía de devolución de dinero</li>
       </ul>
 
-      <div class="lab-badge">
-        <i>✔</i>
-        <div>
-          <strong>Péptidos de seda · Colágeno · Fórmula concentrada</strong>
-        </div>
-      </div>
-
-      <p class="live-count"><i></i><span id="liveViewing">48 personas viendo</span> | <span id="liveOrders">892 pedidos esta semana</span></p>
-
       <div class="buy-actions">
         <button type="button" class="btn-order js-open-order">Ordenar ahora — Pago al recibir</button>
         <p class="pay-note">No pagas nada ahora · Envío gratis a toda Panamá · Te confirmamos por WhatsApp</p>
@@ -682,13 +673,6 @@ document.addEventListener('DOMContentLoaded', function () {
     input.addEventListener('change', syncOrder);
   });
   syncOrder();
-
-  var viewing = document.getElementById('liveViewing');
-  var orders = document.getElementById('liveOrders');
-  if (viewing && orders) {
-    viewing.textContent = (48 + Math.floor(Math.random() * 30)) + ' personas viendo';
-    orders.textContent = (1100 + Math.floor(Math.random() * 120)).toLocaleString('es-PA') + ' pedidos esta semana';
-  }
 
   (function initBenefitCarousel() {
     var track = document.getElementById('reasonTrack');
