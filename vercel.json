@@ -41,9 +41,23 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
+    },
+    {
+      "source": "/korean-silk-collagen-ampoule-panama",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/korean-silk-collagen-ampoule-panama/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
     }
   ],
   "rewrites": [
+    { "source": "/korean-silk-collagen-ampoule-panama", "destination": "/korean-silk-collagen-ampoule-panama.html" },
+    { "source": "/korean-silk-collagen-ampoule-panama/", "destination": "/korean-silk-collagen-ampoule-panama.html" },
     { "source": "/closet-organizer-hanger-panama", "destination": "/closet-organizer-hanger-panama.html" },
     { "source": "/closet-organizer-hanger-panama/", "destination": "/closet-organizer-hanger-panama.html" },
     { "source": "/thank-you-miofertita-panama", "destination": "/thank-you-miofertita-panama.html" },
