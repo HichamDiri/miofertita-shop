@@ -41,6 +41,12 @@ body[data-product="silk-collagen"] .slide img.is-contain {
   background: #f4efe6;
 }
 
+body[data-product="silk-collagen"] .slide img.is-cover {
+  object-fit: cover;
+  padding: 0;
+  background: #f4efe6;
+}
+
 body[data-product="silk-collagen"] .rating-row {
   margin-bottom: 10px;
 }
