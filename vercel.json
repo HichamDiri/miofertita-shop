@@ -53,9 +53,23 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
+    },
+    {
+      "source": "/universal-toilet-seat-bolts-panama",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/universal-toilet-seat-bolts-panama/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
     }
   ],
   "rewrites": [
+    { "source": "/universal-toilet-seat-bolts-panama", "destination": "/universal-toilet-seat-bolts-panama.html" },
+    { "source": "/universal-toilet-seat-bolts-panama/", "destination": "/universal-toilet-seat-bolts-panama.html" },
     { "source": "/korean-silk-collagen-ampoule-panama", "destination": "/korean-silk-collagen-ampoule-panama.html" },
     { "source": "/korean-silk-collagen-ampoule-panama/", "destination": "/korean-silk-collagen-ampoule-panama.html" },
     { "source": "/closet-organizer-hanger-panama", "destination": "/closet-organizer-hanger-panama.html" },
