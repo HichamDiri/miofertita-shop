@@ -1057,7 +1057,7 @@ body[data-product="toilet-bolts"] .review-photo-btn img {
 }
 
 body[data-product="toilet-bolts"] .review-photo-btn::after {
-  content: "â¤¢";
+  content: "🔍";
   position: absolute;
   right: 10px;
   bottom: 10px;
