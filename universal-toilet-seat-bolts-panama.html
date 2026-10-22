@@ -131,7 +131,7 @@
   <section class="feature story-step">
     <div class="feature-inner">
       <div class="feature-media feature-media--square">
-        <img class="story-problem-photo" src="/images/toilet-seat-bolts/story-problem.jpg?v=20261022" alt="Asiento de inodoro flojo que se mueve de un lado a otro" width="800" height="800" loading="lazy" decoding="async">
+        <img class="story-problem-photo" src="/images/toilet-seat-bolts/story-problem.jpg?v=20261022st" alt="Asiento de inodoro vacilante — manos sujetando el asiento con flechas rojas de movimiento" width="800" height="800" loading="lazy" decoding="async">
       </div>
       <div class="feature-copy">
         <h2>¿Tu asiento del inodoro se mueve constantemente?</h2>
@@ -144,7 +144,7 @@
   <section class="feature story-step is-reversed">
     <div class="feature-inner">
       <div class="feature-media feature-media--square">
-        <img class="story-solution-demo" src="/images/toilet-seat-bolts/story-solution.jpg?v=20261022" alt="Tornillos de expansión universales instalados — asiento firme" width="800" height="800" loading="lazy" decoding="async">
+        <img class="story-solution-demo" id="storySolutionDemo" src="/images/toilet-seat-bolts/hero-install.jpg?v=20261022st" data-animate="/images/toilet-seat-bolts/story-solution.gif?v=20261022st" alt="Demostración — instalación de tornillos de expansión en el inodoro" width="800" height="800" loading="lazy" decoding="async">
       </div>
       <div class="feature-copy">
         <h2>¡Recupera la estabilidad de tu asiento!</h2>
@@ -585,6 +585,30 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!wasOpen) item.classList.add('is-open');
     });
   });
+
+  function lazyLoadGif(img) {
+    if (!img || !img.dataset.animate) return;
+    var load = function () {
+      if (img.dataset.loaded) return;
+      img.dataset.loaded = '1';
+      img.src = img.dataset.animate;
+    };
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            load();
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '240px' });
+      observer.observe(img);
+    } else {
+      load();
+    }
+  }
+
+  lazyLoadGif(document.getElementById('storySolutionDemo'));
 });
 </script>
 </body>
