@@ -699,6 +699,28 @@ document.addEventListener('DOMContentLoaded', function() {
     return normalizeSaudiPhone(value);
   }
 
+  function normalizeOrderAmount(value) {
+    if (value == null || value === '') return '';
+    var s = String(value).trim().replace(/^\s*([$Qq]|USD|GTQ)\s*/i, '');
+    s = s.replace(/,/g, '');
+    var n = Number(s);
+    if (!isNaN(n)) return String(n);
+    return s;
+  }
+
+  function withPlainAmounts(payload) {
+    if (payload.price != null && payload.price !== '') {
+      payload.price = normalizeOrderAmount(payload.price);
+    }
+    if (payload.shipping != null && payload.shipping !== '') {
+      payload.shipping = normalizeOrderAmount(payload.shipping);
+    }
+    if (payload.total != null && payload.total !== '') {
+      payload.total = normalizeOrderAmount(payload.total);
+    }
+    return payload;
+  }
+
   function createOrderId() {
     if (document.body && document.body.dataset.brand === 'miofertita') {
       return 'MF-' + Date.now().toString().slice(-8);
@@ -936,6 +958,8 @@ document.addEventListener('DOMContentLoaded', function() {
       payload.shipping = String(formData.get('shipping') || '0').trim();
       payload.total = String(formData.get('total') || selection.price).trim();
     }
+
+    withPlainAmounts(payload);
 
     try {
       if (submitButton) {

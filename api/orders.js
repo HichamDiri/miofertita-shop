@@ -1,6 +1,17 @@
 const GOOGLE_SHEETS_URL =
   process.env.GOOGLE_SHEETS_URL ||
-  'https://script.google.com/macros/s/AKfycbx__S60obOiYJB7dqlBNMqIvaxTIzY2pafz92tsgYX9G7tpGZvMQYur-N664u787IZVHw/exec';
+  'https://script.google.com/macros/s/AKfycbymujUshGmKJ65Saxo67KcNiZiGwBfrO5Z2JE3XlqVzal_wP1uLBsj_puSRHQ1_rGM6lw/exec';
+
+function resolveGoogleSheetsUrl(source) {
+  const key = String(source || '').trim();
+  const bySource = process.env.GOOGLE_SHEETS_BY_SOURCE_JSON
+    ? JSON.parse(process.env.GOOGLE_SHEETS_BY_SOURCE_JSON)
+    : {};
+  if (key && bySource[key]) {
+    return bySource[key];
+  }
+  return GOOGLE_SHEETS_URL;
+}
 
 function readPayload(req) {
   if (!req.body) return {};
@@ -29,10 +40,18 @@ module.exports = async function handler(req, res) {
 
   try {
     const payload = readPayload(req);
+    const targetUrl = resolveGoogleSheetsUrl(payload.source);
+    if (!targetUrl) {
+      return res.status(502).json({
+        ok: false,
+        message: 'No Google Sheets URL configured for this product source'
+      });
+    }
+
     const encoded = new URLSearchParams();
     encoded.append('payload', JSON.stringify(payload));
 
-    const response = await fetch(GOOGLE_SHEETS_URL, {
+    const response = await fetch(targetUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encoded.toString(),

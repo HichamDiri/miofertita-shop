@@ -44,6 +44,15 @@
       return window.GOOGLE_SHEETS_URL || '';
     }
 
+    function normalizeOrderAmount(value) {
+      if (value == null || value === '') return '';
+      var s = String(value).trim().replace(/^\s*([$Qq]|USD|GTQ)\s*/i, '');
+      s = s.replace(/,/g, '');
+      var n = Number(s);
+      if (!isNaN(n)) return String(n);
+      return s;
+    }
+
     function mergeFields() {
       var firstName = form.querySelector('#firstName');
       var lastName = form.querySelector('#lastName');
@@ -99,7 +108,7 @@
       if (department) address = address ? address + ', ' + department : department;
       if (country) address = address ? address + ', ' + country : country;
 
-      return {
+      return withPlainAmounts({
         orderId: abandonOrderId(),
         productId: bundle ? String(bundle.dataset.productId || bundle.value || '').trim() : '',
         productName: bundle ? String(bundle.dataset.productName || '').trim() : '',
@@ -125,7 +134,14 @@
         productPage: window.location.origin + window.location.pathname.replace(/\.html$/, ''),
         marketCountry: document.body && document.body.dataset.country === 'PA' ? 'panama' : '',
         marketCurrency: String(formData.get('currency') || 'USD').trim()
-      };
+      });
+    }
+
+    function withPlainAmounts(payload) {
+      payload.price = normalizeOrderAmount(payload.price);
+      payload.shipping = normalizeOrderAmount(payload.shipping);
+      payload.total = normalizeOrderAmount(payload.total);
+      return payload;
     }
 
     function storageKey(payload) {
