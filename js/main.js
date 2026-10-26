@@ -243,30 +243,6 @@ document.addEventListener('DOMContentLoaded', function() {
     sessionStorage.setItem(dedupeKey, '1');
   }
 
-  function trackFacebookPurchase(payload, orderId) {
-    var fbPixelId = getFbPixelId();
-    if (!fbPixelId || !orderId) return;
-
-    var purchaseValue = Number(payload.total || payload.price) || 0;
-    if (purchaseValue <= 0) return;
-
-    var dedupeKey = 'fb_purchase_' + orderId;
-    if (sessionStorage.getItem(dedupeKey)) return;
-    sessionStorage.setItem(dedupeKey, '1');
-
-    if (!window.fbq) {
-      initFacebookPixel(fbPixelId);
-    }
-    if (!window.fbq) return;
-
-    window.fbq('track', 'Purchase', {
-      content_ids: payload.productId ? [payload.productId] : [],
-      content_name: payload.productName || '',
-      content_type: 'product',
-      value: purchaseValue,
-      currency: payload.currency || 'USD'
-    }, { eventID: orderId });
-  }
 
   var tiktokCheckoutTracked = false;
 
@@ -748,11 +724,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     params.set('order', orderId);
-    var fbPixelId = document.body && document.body.dataset.fbPixelId
-      ? document.body.dataset.fbPixelId
-      : '';
+    var fbPixelId = getFbPixelId();
     if (fbPixelId) {
       params.set('fbPixelId', fbPixelId);
+    }
+    if (document.body && document.body.dataset.fbThankyouEvent) {
+      params.set('fbEvent', document.body.dataset.fbThankyouEvent);
     }
     var tiktokPixelId = document.body && document.body.dataset.tiktokPixelId
       ? document.body.dataset.tiktokPixelId
@@ -760,7 +737,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tiktokPixelId) {
       params.set('tiktokPixelId', tiktokPixelId);
     }
-    trackFacebookPurchase(payload, orderId);
     window.location.href = getThankYouPath() + '?' + params.toString();
   }
 
