@@ -742,17 +742,38 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = getThankYouPath() + '?' + params.toString();
   }
 
+  function getGoogleSheetsUrl(source) {
+    if (typeof window.resolveGoogleSheetsUrl === 'function') {
+      return window.resolveGoogleSheetsUrl(source || '');
+    }
+    return window.GOOGLE_SHEETS_URL || '';
+  }
+
+  function getMarketCountryLabel() {
+    var code = document.body && document.body.dataset.country;
+    if (code === 'PA') return 'panama';
+    if (code === 'GT') return 'guatemala';
+    return String(code || '').toLowerCase();
+  }
+
+  function getProductPageUrl() {
+    if (document.body && document.body.dataset.productPage) {
+      return document.body.dataset.productPage;
+    }
+    var path = window.location.pathname.replace(/\.html$/, '');
+    return window.location.origin + path;
+  }
+
   function hasOrderEndpoint() {
+    if (typeof window.hasGoogleSheetsEndpoint === 'function') {
+      return window.hasGoogleSheetsEndpoint('');
+    }
     return Boolean(window.GOOGLE_SHEETS_URL || window.ORDER_API_URL);
   }
 
   function submitToGoogleSheets(url, payload) {
     var body = new URLSearchParams();
     body.append('payload', JSON.stringify(payload));
-
-    if (typeof navigator.sendBeacon === 'function' && navigator.sendBeacon(url, body)) {
-      return Promise.resolve({ ok: true, order: { id: payload.orderId } });
-    }
 
     return fetch(url, {
       method: 'POST',
@@ -761,30 +782,51 @@ document.addEventListener('DOMContentLoaded', function() {
       body: body
     }).then(function() {
       return { ok: true, order: { id: payload.orderId } };
+    }).catch(function() {
+      if (typeof navigator.sendBeacon === 'function' && navigator.sendBeacon(url, body)) {
+        return { ok: true, order: { id: payload.orderId } };
+      }
+      throw new Error(isSpanishPage()
+        ? 'No se pudo conectar con el servidor. Intenta de nuevo.'
+        : 'تعذر الاتصال بالخادم. يرجى المحاولة مرة أخرى.');
     });
   }
 
   function submitOrder(payload) {
-    if (window.GOOGLE_SHEETS_URL) {
-      return submitToGoogleSheets(window.GOOGLE_SHEETS_URL, payload);
+    if (window.ORDER_API_URL) {
+      return fetch(window.ORDER_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify(payload)
+      }).then(function(response) {
+        return response.text().then(function(text) {
+          var result;
+          try {
+            result = JSON.parse(text);
+          } catch (error) {
+            throw new Error(isSpanishPage()
+              ? 'No se pudo conectar con el servidor. Intenta de nuevo.'
+              : 'تعذر الاتصال بالخادم. يرجى المحاولة مرة أخرى.');
+          }
+          if (!response.ok || !result.ok) {
+            throw new Error(result.message || (isSpanishPage()
+              ? 'No se pudo enviar el pedido'
+              : 'تعذر إرسال الطلب'));
+          }
+          return { ok: true, order: { id: payload.orderId }, sheetSynced: true };
+        });
+      });
     }
 
-    return fetch(window.ORDER_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      keepalive: true,
-      body: JSON.stringify(payload)
-    }).then(function(response) {
-      return response.text().then(function(text) {
-        try {
-          return JSON.parse(text);
-        } catch (error) {
-          throw new Error(isSpanishPage()
-            ? 'No se pudo conectar con el servidor. Intenta de nuevo.'
-            : 'تعذر الاتصال بالخادم. يرجى المحاولة مرة أخرى.');
-        }
+    var sheetsUrl = getGoogleSheetsUrl(payload.source);
+    if (sheetsUrl) {
+      return submitToGoogleSheets(sheetsUrl, payload).then(function() {
+        return { ok: true, order: { id: payload.orderId }, sheetSynced: false };
       });
-    });
+    }
+
+    return Promise.resolve({ ok: false, message: 'No order endpoint configured' });
   }
 
   form.addEventListener('submit', async function(e) {
@@ -881,7 +923,11 @@ document.addEventListener('DOMContentLoaded', function() {
       bundleLabel: selectedBundle ? String(selectedBundle.dataset.label || '').trim() : '',
       color: String(formData.get('color') || '').trim(),
       createdAt: new Date().toISOString(),
-      source: String(formData.get('source') || (document.body && document.body.dataset.brand === 'miofertita' ? 'miofertita' : 'compraconfio')).trim()
+      source: String(formData.get('source') || 'compraconfio').trim(),
+      status: 'Pedido',
+      productPage: getProductPageUrl(),
+      marketCountry: getMarketCountryLabel(),
+      marketCurrency: selection.currency
     };
 
     var shippingMethodValue = String(formData.get('shippingMethod') || '').trim();

@@ -11,11 +11,37 @@
     var submitted = false;
     var sent = false;
 
+    function normalizeLenientPhone(value) {
+      var digits = String(value || '').replace(/[^\d]/g, '');
+      return digits.length >= 7 && digits.length <= 15 ? digits : '';
+    }
+
     function normalizePanamaPhone(value) {
       var digits = String(value || '').replace(/[^\d]/g, '');
       if (/^507[2-9][0-9]{7}$/.test(digits)) return digits.slice(3);
       if (/^[2-9][0-9]{7}$/.test(digits)) return digits;
       return '';
+    }
+
+    function normalizePhone(value) {
+      if (document.body && document.body.dataset.phoneLenient === 'on') {
+        return normalizeLenientPhone(value);
+      }
+      return normalizePanamaPhone(value);
+    }
+
+    function abandonOrderId() {
+      if (document.body && document.body.dataset.brand === 'miofertita') {
+        return 'MF-AB-' + Date.now().toString().slice(-8);
+      }
+      return 'CC-AB-' + Date.now().toString().slice(-8);
+    }
+
+    function sheetsUrl(source) {
+      if (typeof window.resolveGoogleSheetsUrl === 'function') {
+        return window.resolveGoogleSheetsUrl(source || '');
+      }
+      return window.GOOGLE_SHEETS_URL || '';
     }
 
     function mergeFields() {
@@ -47,7 +73,7 @@
 
       if (!firstName || !firstName.value.trim()) return false;
       if (!lastName || !lastName.value.trim()) return false;
-      if (!normalizePanamaPhone(phone && phone.value)) return false;
+      if (!normalizePhone(phone && phone.value)) return false;
       if (!department || !department.value.trim()) return false;
       if (!city || city.disabled || !city.value.trim()) return false;
       if (!addressLine || !addressLine.value.trim()) return false;
@@ -59,7 +85,7 @@
       mergeFields();
       var formData = new FormData(form);
       var bundle = form.querySelector('input[name="bundleOption"]:checked');
-      var phone = normalizePanamaPhone(formData.get('phone'));
+      var phone = normalizePhone(formData.get('phone'));
       var firstName = String(formData.get('firstName') || '').trim();
       var lastName = String(formData.get('lastName') || '').trim();
       var name = String(formData.get('name') || '').trim() || (firstName + ' ' + lastName).trim();
@@ -74,7 +100,7 @@
       if (country) address = address ? address + ', ' + country : country;
 
       return {
-        orderId: 'CC-AB-' + Date.now().toString().slice(-8),
+        orderId: abandonOrderId(),
         productId: bundle ? String(bundle.dataset.productId || bundle.value || '').trim() : '',
         productName: bundle ? String(bundle.dataset.productName || '').trim() : '',
         price: bundle ? String(bundle.dataset.price || '').trim() : '',
@@ -94,8 +120,11 @@
         shipping: String(formData.get('shipping') || '0').trim(),
         total: String(formData.get('total') || '').trim(),
         createdAt: new Date().toISOString(),
-        source: String(formData.get('source') || '').trim(),
-        status: 'Abandono'
+        source: String(formData.get('source') || 'compraconfio').trim(),
+        status: 'Abandono',
+        productPage: window.location.origin + window.location.pathname.replace(/\.html$/, ''),
+        marketCountry: document.body && document.body.dataset.country === 'PA' ? 'panama' : '',
+        marketCurrency: String(formData.get('currency') || 'USD').trim()
       };
     }
 
@@ -106,7 +135,9 @@
     function postPayload(payload) {
       var body = 'payload=' + encodeURIComponent(JSON.stringify(payload));
 
-      return fetch(window.GOOGLE_SHEETS_URL, {
+      var url = sheetsUrl(payload.source);
+      if (!url) return Promise.resolve();
+      return fetch(url, {
         method: 'POST',
         mode: 'no-cors',
         keepalive: true,
