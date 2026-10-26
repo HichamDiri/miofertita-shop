@@ -16,6 +16,7 @@ replacements = [
     ('compra<em>confio</em>', 'mio<em>fertita</em>'),
     ('contacto@compraconfio.shop', 'contacto@miofertita.shop'),
     ('data-brand="compraconfio"', 'data-brand="miofertita"'),
+    ('data-fb-pixel="off" data-abandon-checkout', 'data-fb-pixel="off" data-phone-lenient="on" data-abandon-checkout'),
     ('/thank-you-compraconfio-panama.html', '/thank-you-miofertita-panama.html'),
     ('facebook-domain-verification" content="ytbsk6igo7oh4rui32ve803vp025qw"',
      'facebook-domain-verification" content="xbcif1s989l5gi1gu3xogwfta9vg58"'),
