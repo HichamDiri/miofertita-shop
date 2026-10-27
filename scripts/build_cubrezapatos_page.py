@@ -13,7 +13,7 @@ html = html.replace(
 )
 html = html.replace(
     'data-product="fastime-wipes"',
-    'data-product="cubrezapatos" data-fb-pixel-id="1825937068441998" data-fb-thankyou-event="Lead"',
+    'data-product="cubrezapatos"',
 )
 html = html.replace("/images/fastime/", f"{IMG}/")
 html = html.replace("?v=20261027f", f"?v={V}")
