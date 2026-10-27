@@ -64,8 +64,8 @@
       <h1 class="product-title">Toallitas para eliminar la película de aceite del vidrio + 3 pares de guantes GRATIS</h1>
 
       <div class="price-row">
-        <span class="price-now" id="priceNow">$21.99</span>
-        <span class="price-was" id="priceWas">$24.99</span>
+        <span class="price-now" id="priceNow">$39</span>
+        <span class="price-was" id="priceWas">$49</span>
         <span class="price-save" id="priceSave">Oferta</span>
       </div>
 
@@ -163,7 +163,7 @@
 
 <div class="sticky-bar" id="bottomSticky" aria-hidden="true">
   <div>
-    <strong id="stickyPrice">$21.99</strong>
+    <strong id="stickyPrice">$39</strong>
     <span id="stickyLabel">1 caja (3 uds)</span>
   </div>
   <button type="button" class="js-open-order">Comprar</button>
@@ -192,32 +192,32 @@
         <span class="block-label">1. Elige tu oferta</span>
         <div class="bundles">
           <label class="bundle bundle-option is-selected">
-            <input type="radio" name="bundleOption" value="mf-fastime-pa-1" data-product-id="mf-fastime-pa-1" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 1 caja (3 uds)" data-price="21.99" data-old-price="24.99" data-save="12" data-label="1 caja (3 uds)" checked>
+            <input type="radio" name="bundleOption" value="mf-fastime-pa-1" data-product-id="mf-fastime-pa-1" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 1 caja (3 uds)" data-price="39" data-old-price="49" data-save="20" data-label="1 caja (3 uds)" checked>
             <div class="bundle-card">
               <span class="bundle-flag">Más pedido</span>
               <div class="bundle-head">
                 <span class="bundle-pick"><span class="radio"></span>1 caja · 3 toallitas</span>
-                <span class="bundle-cost"><strong>$21.99</strong><del>$24.99</del></span>
+                <span class="bundle-cost"><strong>$39</strong><del>$49</del></span>
               </div>
             </div>
           </label>
           <label class="bundle bundle-option">
-            <input type="radio" name="bundleOption" value="mf-fastime-pa-2" data-product-id="mf-fastime-pa-2" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 2 cajas" data-price="40" data-old-price="44" data-save="10" data-label="2 cajas · -10%">
+            <input type="radio" name="bundleOption" value="mf-fastime-pa-2" data-product-id="mf-fastime-pa-2" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 2 cajas" data-price="70" data-old-price="78" data-save="10" data-label="2 cajas · -10%">
             <div class="bundle-card">
               <span class="bundle-flag">Ahorra 10%</span>
               <div class="bundle-head">
                 <span class="bundle-pick"><span class="radio"></span>2 cajas</span>
-                <span class="bundle-cost"><strong>$40</strong><del>$44</del></span>
+                <span class="bundle-cost"><strong>$70</strong><del>$78</del></span>
               </div>
             </div>
           </label>
           <label class="bundle bundle-option">
-            <input type="radio" name="bundleOption" value="mf-fastime-pa-3" data-product-id="mf-fastime-pa-3" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 3 cajas" data-price="56" data-old-price="66" data-save="15" data-label="3 cajas · -15%">
+            <input type="radio" name="bundleOption" value="mf-fastime-pa-3" data-product-id="mf-fastime-pa-3" data-product-name="Toallitas película aceite vidrio + 3 guantes GRATIS - 3 cajas" data-price="99" data-old-price="117" data-save="15" data-label="3 cajas · -15%">
             <div class="bundle-card">
               <span class="bundle-flag">Mejor valor</span>
               <div class="bundle-head">
                 <span class="bundle-pick"><span class="radio"></span>3 cajas o más</span>
-                <span class="bundle-cost"><strong>$56</strong><del>$66</del></span>
+                <span class="bundle-cost"><strong>$99</strong><del>$117</del></span>
               </div>
             </div>
           </label>
@@ -249,7 +249,7 @@
         </div>
         <div class="form-head"><span class="block-label">🚚 3. Método de envío</span></div>
         <input type="hidden" name="shipping" id="shippingCost" value="0">
-        <input type="hidden" name="total" id="orderTotal" value="21.99">
+        <input type="hidden" name="total" id="orderTotal" value="39">
         <div class="ship-options">
           <label class="ship is-selected">
             <input type="radio" name="shippingMethod" value="Envío gratis" data-cost="0" checked>
@@ -265,9 +265,9 @@
           </label>
         </div>
         <div class="order-summary">
-          <div class="sum-row"><span>Subtotal</span><strong id="sumSubtotal">$21.99</strong></div>
+          <div class="sum-row"><span>Subtotal</span><strong id="sumSubtotal">$39</strong></div>
           <div class="sum-row"><span>Envío</span><strong id="sumShipping">Gratis</strong></div>
-          <div class="sum-row is-total"><span>Total a pagar al recibir</span><strong id="sumTotal">$21.99</strong></div>
+          <div class="sum-row is-total"><span>Total a pagar al recibir</span><strong id="sumTotal">$39</strong></div>
         </div>
         <p class="cod-note">💵 <span><b>Pago contra entrega.</b> Pagas en efectivo al recibir.</span></p>
         <button type="submit" class="btn-buy">Confirmar pedido — Pago contra entrega</button>
@@ -335,10 +335,65 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   syncOrder();
 
+  var modal = document.getElementById('orderModal');
+  var firstName = document.getElementById('firstName');
+  var lastName = document.getElementById('lastName');
+  var fullName = document.getElementById('name');
+  var addressLine = document.getElementById('addressLine');
+  var zone = document.getElementById('zone');
+  var address = document.getElementById('address');
+  var lastFocused = null;
+
+  function mergeFields() {
+    if (fullName) {
+      fullName.value = ((firstName && firstName.value.trim()) + ' ' + (lastName && lastName.value.trim())).trim();
+    }
+    if (address && addressLine) {
+      address.value = [addressLine.value.trim(), zone && zone.value.trim()].filter(Boolean).join(', ');
+    }
+  }
+
+  function openOrder() {
+    if (!modal) return;
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    document.body.classList.add('no-scroll');
+    setTimeout(function () {
+      if (firstName) firstName.focus({ preventScroll: true });
+    }, 260);
+  }
+
+  function closeOrder() {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+    if (lastFocused) lastFocused.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('.js-open-order').forEach(function (btn) {
+    btn.addEventListener('click', openOrder);
+  });
+  if (modal) {
+    modal.querySelectorAll('[data-close-order]').forEach(function (btn) {
+      btn.addEventListener('click', closeOrder);
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) closeOrder();
+  });
+
+  [firstName, lastName, addressLine, zone].forEach(function (input) {
+    if (input) input.addEventListener('input', mergeFields);
+  });
+  var orderForm = document.getElementById('orderForm');
+  if (orderForm) orderForm.addEventListener('submit', mergeFields, true);
+
   var department = document.getElementById('department');
   var city = document.getElementById('city');
-  if (department && city && window.PA_LOCATIONS) {
-    Object.keys(window.PA_LOCATIONS).sort().forEach(function (prov) {
+  var distritos = window.PA_DISTRITOS || {};
+  if (department && city && Object.keys(distritos).length) {
+    Object.keys(distritos).sort().forEach(function (prov) {
       var opt = document.createElement('option');
       opt.value = prov;
       opt.textContent = prov;
@@ -348,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
       city.innerHTML = '<option value="" disabled selected>Selecciona tu distrito</option>';
       city.disabled = !department.value;
       if (!department.value) return;
-      (window.PA_LOCATIONS[department.value] || []).forEach(function (dist) {
+      (distritos[department.value] || []).forEach(function (dist) {
         var o = document.createElement('option');
         o.value = dist;
         o.textContent = dist;
