@@ -1,0 +1,96 @@
+body[data-product="fastime-wipes"] {
+  --fastime-blue: #1a6fd4;
+  --fastime-blue-deep: #0d4a9e;
+  --fastime-yellow: #f5c518;
+  background: #0a1628;
+}
+
+body[data-product="fastime-wipes"] .announce {
+  background: var(--fastime-blue-deep);
+  color: #e8f2ff;
+}
+
+body[data-product="fastime-wipes"] .deal-strip {
+  background: linear-gradient(90deg, var(--fastime-blue-deep), var(--fastime-blue));
+  color: #fff;
+  font-weight: 700;
+}
+
+body[data-product="fastime-wipes"] .product-main {
+  background: #f4f8fc;
+}
+
+body[data-product="fastime-wipes"] .product-title {
+  color: #0a1628;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+}
+
+body[data-product="fastime-wipes"] .price-now {
+  color: var(--fastime-blue-deep);
+}
+
+body[data-product="fastime-wipes"] .btn-order,
+body[data-product="fastime-wipes"] .btn-buy {
+  background: linear-gradient(180deg, var(--fastime-yellow) 0%, #e6b800 100%);
+  color: #0a1628;
+  border: none;
+  font-weight: 800;
+}
+
+body[data-product="fastime-wipes"] .sticky-bar button {
+  background: var(--fastime-yellow);
+  color: #0a1628;
+  font-weight: 800;
+}
+
+body[data-product="fastime-wipes"] .gallery-stage .slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+body[data-product="fastime-wipes"] .lp-stack {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 8px;
+  background: #0a1628;
+}
+
+body[data-product="fastime-wipes"] .lp-stack img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: top;
+}
+
+body[data-product="fastime-wipes"] .lp-cta-wrap {
+  padding: 16px 16px 28px;
+  text-align: center;
+  background: #0a1628;
+}
+
+body[data-product="fastime-wipes"] .lp-cta-wrap .btn-order {
+  width: 100%;
+  max-width: 420px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  border-radius: 999px;
+}
+
+body[data-product="fastime-wipes"] .faq-fastime {
+  background: #f4f8fc;
+  padding: 40px 16px 48px;
+}
+
+body[data-product="fastime-wipes"] .faq-fastime .shell {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+body[data-product="fastime-wipes"] .faq-fastime h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #0a1628;
+}
