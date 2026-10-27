@@ -1,0 +1,175 @@
+body[data-product="cubrezapatos"] {
+  --cubrezapatos-blue: #2b6cb0;
+  --cubrezapatos-blue-deep: #1a4d8c;
+  --cubrezapatos-yellow: #f5c518;
+  background: #121820;
+}
+
+body[data-product="cubrezapatos"] .announce {
+  background: #0f1724;
+  color: #e8f2ff;
+}
+
+body[data-product="cubrezapatos"] .deal-strip {
+  background: linear-gradient(90deg, var(--cubrezapatos-blue-deep), var(--cubrezapatos-blue));
+  color: #fff;
+  font-weight: 700;
+}
+
+body[data-product="cubrezapatos"] .product-main {
+  background: #f0f4f8;
+}
+
+body[data-product="cubrezapatos"] .product-title {
+  color: #121820;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+}
+
+body[data-product="cubrezapatos"] .price-now {
+  color: var(--cubrezapatos-blue-deep);
+}
+
+body[data-product="cubrezapatos"] .bundle-head {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body[data-product="cubrezapatos"] .bundle-pick {
+  flex: 1 1 100%;
+  line-height: 1.35;
+  font-size: 0.88rem;
+}
+
+body[data-product="cubrezapatos"] .bundle-cost {
+  margin-left: auto;
+}
+
+body[data-product="cubrezapatos"] .sticky-bar span#stickyLabel {
+  font-size: 0.65rem;
+  line-height: 1.25;
+  max-width: 58vw;
+}
+
+body[data-product="cubrezapatos"] .btn-order,
+body[data-product="cubrezapatos"] .btn-buy {
+  background: linear-gradient(180deg, var(--cubrezapatos-blue) 0%, var(--cubrezapatos-blue-deep) 100%);
+  color: #fff;
+  border: none;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(43, 108, 176, 0.35);
+}
+
+body[data-product="cubrezapatos"] .btn-order:hover,
+body[data-product="cubrezapatos"] .btn-buy:hover {
+  opacity: 1;
+  filter: brightness(1.06);
+}
+
+body[data-product="cubrezapatos"] .sticky-bar button {
+  background: var(--cubrezapatos-blue);
+  color: #fff;
+  font-weight: 800;
+}
+
+body[data-product="cubrezapatos"] .sticky-bar button:hover {
+  background: var(--cubrezapatos-blue-deep);
+}
+
+body[data-product="cubrezapatos"] .gallery-stage {
+  aspect-ratio: auto;
+  height: auto;
+  align-items: flex-start;
+  background: #121820;
+}
+
+body[data-product="cubrezapatos"] .slide {
+  height: auto;
+  align-self: flex-start;
+}
+
+body[data-product="cubrezapatos"] .slide img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  border-radius: 0;
+  background: transparent;
+}
+
+body[data-product="cubrezapatos"] .gallery-thumbs {
+  padding-bottom: 12px;
+  background: #fff;
+}
+
+body[data-product="cubrezapatos"] .thumb {
+  flex: 0 0 auto;
+  width: 52px;
+  height: auto;
+  max-height: 92px;
+  border-radius: 6px;
+}
+
+body[data-product="cubrezapatos"] .thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+body[data-product="cubrezapatos"] .lp-stack {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 8px;
+  background: #121820;
+}
+
+body[data-product="cubrezapatos"] .lp-stack img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: top;
+}
+
+body[data-product="cubrezapatos"] .lp-cta-wrap {
+  padding: 16px 16px 28px;
+  text-align: center;
+  background: #121820;
+}
+
+body[data-product="cubrezapatos"] .lp-cta-wrap .btn-order {
+  width: 100%;
+  max-width: 420px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  border-radius: 999px;
+}
+
+body[data-product="cubrezapatos"] .faq-lp {
+  background: #f0f4f8;
+  padding: 40px 16px 48px;
+}
+
+body[data-product="cubrezapatos"] .faq-lp .shell {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+body[data-product="cubrezapatos"] .faq-lp h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #121820;
+}
+
+@media (min-width: 961px) {
+  body[data-product="cubrezapatos"] .gallery-stage {
+    aspect-ratio: auto;
+    max-height: none;
+  }
+
+  body[data-product="cubrezapatos"] .thumb {
+    width: 64px;
+    max-height: 114px;
+  }
+}
