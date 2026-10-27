@@ -52,16 +52,27 @@ body[data-product="fastime-wipes"] .sticky-bar span#stickyLabel {
 
 body[data-product="fastime-wipes"] .btn-order,
 body[data-product="fastime-wipes"] .btn-buy {
-  background: linear-gradient(180deg, var(--fastime-yellow) 0%, #e6b800 100%);
-  color: #0a1628;
+  background: linear-gradient(180deg, var(--fastime-blue) 0%, var(--fastime-blue-deep) 100%);
+  color: #fff;
   border: none;
   font-weight: 800;
+  box-shadow: 0 4px 14px rgba(26, 111, 212, 0.35);
+}
+
+body[data-product="fastime-wipes"] .btn-order:hover,
+body[data-product="fastime-wipes"] .btn-buy:hover {
+  opacity: 1;
+  filter: brightness(1.06);
 }
 
 body[data-product="fastime-wipes"] .sticky-bar button {
-  background: var(--fastime-yellow);
-  color: #0a1628;
+  background: var(--fastime-blue);
+  color: #fff;
   font-weight: 800;
+}
+
+body[data-product="fastime-wipes"] .sticky-bar button:hover {
+  background: var(--fastime-blue-deep);
 }
 
 /* Hero gallery: native portrait ratio (no square crop) */
